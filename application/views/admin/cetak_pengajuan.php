@@ -169,23 +169,51 @@
 </table>
 
 <!-- Tanda Tangan -->
-<table class="no-border signature">
+<style>
+.signature {
+    width: 100%;
+    margin-top: 50px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.signature td {
+    width: 50%;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.signature .sign-box {
+    height: 80px; /* tinggi kotak tanda tangan */
+    border-bottom: 1px dotted #000; /* garis titik-titik */
+    width: 70%; /* lebar kotak tanda tangan */
+    margin-top: 30px;
+}
+
+.signature p {
+    margin: 0;
+    font-size: 12px;
+}
+</style>
+
+<table class="signature">
     <tr>
         <td style="text-align:left;">
             <p>Tanggal pengajuan: <?= date('d F Y'); ?></p>
             <p>Yang Membuat,</p>
-            <br><br><br>
+            <div class="sign-box"></div>
             <b><?= $this->session->userdata('nama'); ?></b><br>
             Admin
         </td>
-        <td style="text-align:right;">
+        <td style="text-align:left;">
             <p>Disetujui,</p>
-            <br><br><br>
-            <b></b><br>
-            Direktur Utama
+            <div class="sign-box"></div>
+            <b><?= $this->session->userdata('nama'); ?></b><br>
+            <b>Direktur Utama</b>
         </td>
     </tr>
 </table>
+
 
 </body>
 </html>
