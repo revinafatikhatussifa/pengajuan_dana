@@ -82,6 +82,22 @@ Swal.fire({
 
                 </div>
             </div>
+            <script>
+            document.addEventListener("input", function(e) {
+                if (e.target.classList.contains("banyak") || e.target.classList.contains("nominal")) {
+
+                    let banyakInputs = document.querySelectorAll(".banyak");
+                    let nominalInputs = document.querySelectorAll(".nominal");
+                    let jumlahInputs  = document.querySelectorAll(".jumlah");
+
+                    banyakInputs.forEach((b, i) => {
+                        let banyak = parseFloat(b.value) || 0;
+                        let nominal = parseFloat(nominalInputs[i].value) || 0;
+                        jumlahInputs[i].value = banyak * nominal;
+                    });
+                }
+            });
+</script>
             <div class="card-footer text-end">
                 <a href="<?= base_url('user/rincian'); ?>" class="btn btn-primary">
                 <i class="fas fa-arrow-left"></i> Kembali
@@ -94,19 +110,6 @@ Swal.fire({
     </form>
 </div>
 
-
-
-<script>
-// Hitung otomatis jumlah = banyak × nominal
-document.addEventListener("input", function(e) {
-    if (e.target.classList.contains("banyak") || e.target.classList.contains("nominal")) {
-        let row = e.target.closest("tr");
-        let banyak = parseFloat(row.querySelector(".banyak").value) || 0;
-        let nominal = parseFloat(row.querySelector(".nominal").value) || 0;
-        row.querySelector(".jumlah").value = banyak * nominal;
-    }
-});
-</script>
 <script>
 document.getElementById('btnKirim').addEventListener('click', function(e) {
     e.preventDefault();

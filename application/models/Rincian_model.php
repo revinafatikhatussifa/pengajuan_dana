@@ -69,8 +69,29 @@ public function getDokumenByPengajuanId($user_id)
 }
 public function getRincianByNama($nama_user)
 {
+     $this->db->like('nama_user', $nama_user);
+    return $this->db->get('rincian')->result_array();
+}
+public function getRincianByNamaUser($nama_user)
+{
     return $this->db->get_where('rincian', ['nama_user' => $nama_user])->result_array();
 }
 
+public function getDaftarRincian($nama_user = null, $created_at = null)
+{
+    $this->db->select('*');
+    $this->db->from('rincian');
+
+    if (!empty($nama_user)) {
+        $this->db->like('nama_user', $nama_user);
+    }
+
+    if (!empty($created_at)) {
+        $this->db->where('DATE(created_at)', $created_at);
+    }
+
+    $query = $this->db->get();
+    return $query->result_array();
+}
 
 }

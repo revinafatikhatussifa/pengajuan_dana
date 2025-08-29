@@ -3,8 +3,8 @@
     
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin'); ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-cogs"></i>
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-fw fa-user-tie"></i>
         </div>
         <div class="sidebar-brand-text mx-3">DataLoka Admin</div>
     </a>
@@ -35,6 +35,12 @@
         <a class="nav-link" href="<?= base_url('admin/dokumen'); ?>">
             <i class="fas fa-fw fa-folder"></i>
             <span>Daftar dokumen</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('admin/laporan'); ?>">
+            <i class="fas fa-fw fa-address-book"></i>
+            <span>Laporan</span></a>
     </li>
 
     <hr class="sidebar-divider">

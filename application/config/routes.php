@@ -57,5 +57,6 @@ $route['pengajuan/rinci/(:num)'] = 'pengajuan/rinci/$1';
 $route['user/upload'] = 'user/upload';
 $route['admin'] = 'admin/index';
 $route['admin/download_excel'] = 'admin/download_excel';
+$route['laporan'] = 'admin/laporan';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

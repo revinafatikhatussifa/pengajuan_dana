@@ -61,15 +61,25 @@
     }
 </style>
 
+ <div class="container-fluid">
+    <form action="<?= base_url('admin/daftar_rincian'); ?>" method="get" class="mb-3">
+    <input type="text" name="nama_user" placeholder="Cari nama..." value="<?= $this->input->get('nama_user'); ?>" class="form-control d-inline w-auto me-2">
+    <input type="date" name="created_at" value="<?= $this->input->get('created_at'); ?>" class="form-control d-inline w-auto me-2">
+    <button type="submit" class="btn btn-primary">Cari</button>
+    <a href="<?= base_url('admin/rincian'); ?>" class="btn btn-secondary">Reset</a>
+</form>
+
 <div class="table-responsive">
     <table class="table table-striped table-hover table-custom">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama</th>
                 <th>Tanggal</th>
+                <th>Nama</th>
+                <th>Keterangan</th>
+                <th>Satuan</th>
+                <th>Nominal</th>
                 <th>Jumlah</th>
-                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -77,14 +87,12 @@
                 <?php $no = 1; foreach($rincian as $r) : ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $r['nama_user'] ?? '-' ?></td>
                     <td><?= !empty($r['created_at']) ? date('d-m-Y', strtotime($r['created_at'])) : '-' ?></td>
+                    <td><?= $r['nama_user'] ?? '-' ?></td>
+                    <td><?= htmlspecialchars($r['keterangan']); ?></td>
+                     <td><?= htmlspecialchars($r['satuan']); ?></td>
+                      <td><?= number_format($r['nominal'],0,',','.'); ?></td>
                     <td><?= isset($r['jumlah']) ? number_format($r['jumlah'],0,',','.') : '0' ?></td>
-                    <td>
-                        <a href="<?= base_url('admin/detrinci/'.($r['nama_user'] ?? '')) ?>" class="btn btn-info btn-sm">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                    </td>
                 </tr>
                 <?php endforeach; ?>
             <?php else: ?>

@@ -40,29 +40,21 @@
         color: white;
     }
 </style>
-
-<div class="row mb-4">
-    <div class="col-lg-4 col-md-6 mb-3">
-        <a href="<?= base_url('admin/cetak'); ?>" target="_blank" class="btn btn-custom btn-block">
-            <i class="fas fa-print"></i> Cetak
-        </a>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-3">
-        <a href="<?= base_url('admin/download_excel'); ?>" class="btn btn-custom btn-block">
-            <i class="fas fa-file-excel"></i> Download Excel
-        </a>
-    </div>
-</div>
-
 <!-- Daftar Dokumen Terbaru -->
-
-
-
 <div class="container mt-4">
     <div class="card shadow-sm mb-3">
-        <div class="card-header bg-primary text-white">
-            Data Pengajuan
-        </div>
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <span>Daftar Pengajuan</span>       
+        <div class="btn-group d-flex justify-content-center" role="group" style="gap:6px;">
+        <a href="<?= base_url('admin/download_pdf'); ?>" class="btn btn-danger btn-sm me-2">
+                            <i class="bi bi-file-earmark-pdf-fill"></i> PDF </a> 
+        <a href="<?= base_url('admin/download_excel'); ?>" class="btn btn-success btn-sm me-2">
+                             <i class="bi bi-file-earmark-excel-fill"></i> Excel
+                        </a>
+        <a href="<?= base_url('admin/cetak'); ?>" class="btn btn-custom btn-sm ">
+            <i class="fas fa-print"></i> Cetak
+        </a></div>
+</div>
        <table class="table table-bordered">
     <thead>
         <tr>

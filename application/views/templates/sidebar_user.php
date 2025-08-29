@@ -4,10 +4,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('user'); ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-user"></i>
+        <div class="sidebar-brand-icon ">
+            <i class="fas fa-fw fa-users"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">User DataLoka</div>
+        <div class="sidebar-brand-text mx-3">DataLoka User</div>
     </a>
 
     <hr class="sidebar-divider">

@@ -19,7 +19,7 @@
 </head>
 <body onload="window.print()">
 
-<h2 style="text-align:center;">Laporan Data Pengajuan</h2>
+<h2 style="text-align:center;">Laporan Daftar Pengajuan</h2>
 
 <table>
     <thead>

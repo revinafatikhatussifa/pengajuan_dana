@@ -122,10 +122,39 @@ public function getDokumenByPengajuanId($user_id)
     $this->db->where('id', $id);
     $this->db->update('pengajuan', ['status' => $status]);
 }
-
+//cetak
 public function getRincianByNama($nama_user)
 {
     return $this->db->get_where('rincian', ['nama_user' => $nama_user])->result_array();
+}
+
+public function getByNama($nama)
+{
+     if (!$nama) return []; 
+     
+    $this->db->select('*');
+    $this->db->from('pengajuan');
+    $this->db->like('nama', $nama); 
+    return $this->db->get()->result_array();
+}
+//cetak
+public function getPengajuanWithRincian($nama)
+{
+    // Ambil pengajuan pertama yang namanya sesuai
+    $pengajuan = $this->db->where('nama', $nama)
+                          ->get('pengajuan')
+                          ->row_array();
+
+    if ($pengajuan) {
+        // Ambil semua rincian berdasarkan nama_user
+        $rincian = $this->db->where('nama_user', $pengajuan['nama'])
+                            ->get('rincian')
+                            ->result_array();
+
+        $pengajuan['rincian'] = $rincian;
+    }
+
+    return $pengajuan;
 }
 
 
